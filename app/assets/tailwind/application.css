@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── COLORS ── */
+  --color-hw-bg:         #F5EFE3;
+  --color-hw-bg-2:       #EDE5D4;
+  --color-hw-bg-3:       #E4D9C4;
+  --color-hw-dark:       #1E1408;
+  --color-hw-dark-2:     #2C1F0E;
+  --color-hw-ink:        #2C1F0E;
+  --color-hw-ink-2:      #5C4A2A;
+  --color-hw-ink-3:      #8B7355;
+  --color-hw-gold:       #A07840;
+  --color-hw-gold-light: #C9A96E;
+  --color-hw-cream:      #F5EFE3;
+
+  /* ── FONTS ── */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body:    "EB Garamond", Georgia, serif;
+  --font-ui:      Jost, "Helvetica Neue", sans-serif;
+
+  --font-weight-regular: 400;
+
+  /* ── FONT SIZES ── */
+  --text-2xs:      9px;
+  --text-xs:      10px;
+  --text-sm:      11px;
+  --text-md:      13px;
+  --text-body:    16px;
+  --text-body-lg: 17px;
+  --text-body-xl: 18px;
+  --text-body-2xl:19px;
+  --text-lg:      20px;
+  --text-xl:      22px;
+  --text-2xl:     24px;
+  --text-3xl:     28px;
+  --text-4xl:     30px;
+  --text-5xl:     42px;
+  --text-6xl:     44px;
+  --text-7xl:     48px;
+  --text-8xl:     52px;
+  --text-9xl:     58px;
+  --text-10xl:    62px;
+  --text-hero:    72px;
+
+  /* ── LETTER SPACING ── */
+  --tracking-wordmark: 0.28em;
+  --tracking-nav:      0.14em;
+  --tracking-label:    0.30em;
+  --tracking-cta:      0.18em;
+  --tracking-caption:  0.15em;
+  --tracking-wide:     0.10em;
+  --tracking-widest:   0.35em;
+
+  /* ── SHADOWS ── */
+  --shadow-text-hero: 0 2px 32px rgba(0,0,0,0.25);
+
+  /* ── TRANSITIONS ── */
+  --duration-fast:   200ms;
+  --duration-base:   350ms;
+  --duration-slow:   600ms;
+  --duration-reveal: 800ms;
+  --duration-xfade:  1400ms;
+}
+
+/* ── HERO ANIMATIONS ── */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.hero-line-1 { animation: hero-fade-up 0.7s ease both; animation-delay: 0s;     }
+.hero-line-2 { animation: hero-fade-up 0.7s ease both; animation-delay: 0.2s;   }
+.hero-line-3 { animation: hero-fade-up 0.7s ease both; animation-delay: 0.45s;  }
+.hero-line-4 { animation: hero-fade-up 0.7s ease both; animation-delay: 0.65s;  }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-reveal) ease, transform var(--duration-reveal) ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── HERO SLIDES ── */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--duration-xfade) ease-in-out;
+}
+
+.hero-slide.is-active { opacity: 1; }
+
+/* ── NAV SCROLL STATE ── */
+nav[data-controller="nav"].is-scrolled {
+  background-color: rgba(245, 239, 227, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+nav[data-controller="nav"].is-scrolled .nav-wordmark { color: #2C1F0E; }
+nav[data-controller="nav"].is-scrolled .nav-link     { color: #2C1F0E; }
+nav[data-controller="nav"].is-scrolled .nav-cta {
+  border-color: rgba(160, 120, 64, 0.65);
+  color: #A07840;
+}
+
+nav[data-controller="nav"].is-scrolled .nav-link:hover {
+  color: #A07840;
+}
+
+/* ── HERO DOT INDICATORS ── */
+.hero-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(245, 239, 227, 0.35);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) ease;
+  border: none;
+  padding: 0;
+}
+
+.hero-dot.is-active { background-color: rgba(245, 239, 227, 0.9); }
+
+/* ── DARK SECTION GRID TEXTURE ── */
+.dark-texture {
+  background-image:
+    repeating-linear-gradient(0deg, transparent 39px, rgba(160,120,64,0.04) 40px),
+    repeating-linear-gradient(90deg, transparent 39px, rgba(160,120,64,0.04) 40px);
+}
+
+/* ── PLACEHOLDER IMAGE (stripe pattern) ── */
+.img-placeholder {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 5px,
+      rgba(160, 120, 64, 0.08) 5px,
+      rgba(160, 120, 64, 0.08) 6px
+    );
+}

@@ -1,0 +1,40 @@
+!!! 5
+%html{lang: "en"}
+  %head
+    %title= content_for(:title) || "Haven & Way — Bespoke Travel"
+    %meta{name: "viewport", content: "width=device-width,initial-scale=1"}/
+    %meta{name: "apple-mobile-web-app-capable", content: "yes"}/
+    %meta{name: "application-name", content: "Haven & Way"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = yield :head
+    %link{rel: "preconnect", href: "https://fonts.googleapis.com"}/
+    %link{rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous"}/
+    %link{rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Jost:wght@200;300;400&display=swap"}/
+    = stylesheet_link_tag :app, "data-turbo-track": "reload"
+    = javascript_importmap_tags
+
+  %body.bg-hw-bg.text-hw-ink.antialiased
+    %nav{data: {controller: "nav"}, class: "fixed top-0 left-0 right-0 z-50 h-18 flex items-center justify-between px-13 transition-all duration-base"}
+      -# Wordmark
+      %a{href: "/", class: "nav-wordmark font-ui font-extralight text-md tracking-wordmark uppercase text-hw-cream transition-colors duration-base"}
+        HAVEN
+        %span{class: "font-display font-light", style: "font-style: italic; letter-spacing: 0; text-transform: none;"} &amp;
+        WAY
+
+      -# Nav links
+      %ul{class: "hidden md:flex items-center gap-10"}
+        %li
+          %a{href: "#destinations", class: "nav-link font-ui font-normal text-sm tracking-nav uppercase text-hw-cream/85 hover:text-hw-gold-light transition-colors duration-fast"} Destinations
+        %li
+          %a{href: "#how-we-work", class: "nav-link font-ui font-normal text-sm tracking-nav uppercase text-hw-cream/85 hover:text-hw-gold-light transition-colors duration-fast"} Journeys
+        %li
+          %a{href: "#", class: "nav-link font-ui font-normal text-sm tracking-nav uppercase text-hw-cream/85 hover:text-hw-gold-light transition-colors duration-fast"} About
+        %li
+          %a{href: "#", class: "nav-link font-ui font-normal text-sm tracking-nav uppercase text-hw-cream/85 hover:text-hw-gold-light transition-colors duration-fast"} Stories
+
+      -# CTA
+      %a{href: "#inquiry", class: "nav-cta hidden md:inline-flex font-ui font-normal text-sm tracking-cta uppercase border border-hw-gold-light/55 text-hw-cream px-7 py-3 hover:bg-hw-gold hover:border-hw-gold transition-all duration-fast"}
+        Begin Your Journey
+
+    = yield

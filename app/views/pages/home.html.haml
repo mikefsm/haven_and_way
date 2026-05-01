@@ -1,0 +1,263 @@
+-# ── HERO ───────────────────────────────────────────────────────
+%section{class: "relative h-screen min-h-[640px]", data: {controller: "hero"}}
+
+  -# Slides (gradient placeholders — warm-toned travel photography feel)
+  %div{class: "hero-slide is-active img-placeholder", data: {hero_target: "slide"}, style: "background: linear-gradient(160deg, #6B4A2A 0%, #C49060 45%, #8B5E38 75%, #2C1F0E 100%);"}
+  %div{class: "hero-slide img-placeholder", data: {hero_target: "slide"}, style: "background: linear-gradient(160deg, #505A38 0%, #A89848 45%, #3A3820 75%, #1E1A08 100%);"}
+  %div{class: "hero-slide img-placeholder", data: {hero_target: "slide"}, style: "background: linear-gradient(160deg, #404858 0%, #8090A8 45%, #283040 75%, #181E24 100%);"}
+
+  -# Gradient overlay for text legibility
+  .absolute.inset-0.z-10{class: "bg-gradient-to-b from-hw-dark/10 via-transparent to-hw-dark/65"}
+
+  -# Hero content
+  %div{class: "relative z-20 h-full flex flex-col justify-end pb-20 px-13"}
+    .max-w-2xl
+
+      -# Eyebrow
+      %div{class: "flex items-center gap-4 mb-7 hero-line-1"}
+        .w-9.h-px.bg-hw-gold-light.opacity-80
+        %span{class: "font-ui font-normal text-xs tracking-label uppercase text-hw-gold-light"} Journeys Since 2009
+
+      -# Headline
+      %h1{class: "font-display font-normal text-hero leading-[1.08] text-white hero-line-2", style: "text-shadow: 0 2px 32px rgba(0,0,0,0.25);"}
+        Journeys Drawn
+        %br/
+        %em.font-light.italic from the Heart
+
+      -# Subheadline
+      %p{class: "font-body text-body-xl text-white/75 mt-7 max-w-lg leading-[1.78] hero-line-3"}
+        We work with a deliberately select number of clients each year — not because we can't scale, but because we refuse to.
+
+      -# CTAs
+      %div{class: "flex items-center gap-5 mt-10 hero-line-4"}
+        %a{href: "#inquiry", class: "font-ui font-normal text-sm tracking-cta uppercase bg-hw-gold text-white px-8 py-3.5 hover:bg-amber-700 transition-colors duration-fast"}
+          Begin Your Journey
+        %a{href: "#destinations", class: "font-ui font-normal text-sm tracking-cta uppercase border border-hw-gold-light/55 text-white px-8 py-3.5 hover:bg-hw-gold/20 transition-all duration-fast"}
+          Our Destinations
+
+    -# Slide dots
+    %div{class: "flex items-center gap-2.5 mt-14"}
+      %button.hero-dot.is-active{data: {hero_target: "dot", action: "click->hero#goTo", index: "0"}}
+      %button.hero-dot{data: {hero_target: "dot", action: "click->hero#goTo", index: "1"}}
+      %button.hero-dot{data: {hero_target: "dot", action: "click->hero#goTo", index: "2"}}
+
+
+-# ── INTRO STATEMENT ─────────────────────────────────────────────
+%section{class: "bg-hw-bg py-24 px-13"}
+  %div{class: "max-w-3xl mx-auto text-center reveal", data: {controller: "reveal"}}
+    %p{class: "font-display font-normal text-4xl text-hw-ink leading-[1.55]"}
+      "There's no form that can capture what the best journeys are made of.
+      %br/
+      %em.italic.font-light But it's a start."
+    %div{class: "flex items-center justify-center gap-4 mt-10"}
+      .w-9.h-px.bg-hw-gold
+      %span{class: "font-ui text-xs tracking-label uppercase text-hw-ink-3"} Haven &amp; Way
+      .w-9.h-px.bg-hw-gold
+
+
+-# ── DESTINATIONS ────────────────────────────────────────────────
+%section#destinations{class: "bg-hw-bg-2 py-24 px-13"}
+
+  -# Section header
+  %div{class: "flex items-end justify-between mb-16"}
+    %div{class: "reveal", data: {controller: "reveal"}}
+      %div{class: "flex items-center gap-4 mb-6"}
+        .w-9.h-px.bg-hw-gold
+        %span{class: "font-ui text-xs tracking-label uppercase text-hw-gold"} Curated Destinations
+      %h2{class: "font-display font-normal text-7xl text-hw-ink leading-[1.08]"}
+        Places That Deserve
+        %br/
+        %em.italic.font-light More Than a Weekend
+    %a{href: "#", class: "hidden lg:inline-flex font-ui font-normal text-sm tracking-cta uppercase border border-hw-gold/50 text-hw-gold px-7 py-3 hover:bg-hw-gold hover:text-white transition-all duration-fast mb-1"}
+      All Destinations
+
+  -# Destination grid
+  %div{class: "grid grid-cols-1 md:grid-cols-3 gap-2"}
+
+    -# Morocco
+    %div{class: "group cursor-pointer reveal", data: {controller: "reveal"}}
+      %div{class: "aspect-[4/3] overflow-hidden relative"}
+        %div{class: "w-full h-full img-placeholder transition-transform duration-slow group-hover:scale-[1.04]", style: "background: linear-gradient(160deg, #8B5E3C 0%, #D4956A 45%, #7A4030 100%);"}
+        %div{class: "absolute inset-0 bg-hw-dark/45 opacity-0 transition-opacity duration-base group-hover:opacity-100 flex items-end p-6"}
+          %span{class: "font-ui text-xs tracking-cta uppercase text-white/90"} Explore Morocco
+      %div{class: "pt-5 pb-7 border-b border-hw-gold/20"}
+        %div{class: "flex items-center gap-3 mb-2"}
+          .w-5.h-px.bg-hw-gold.opacity-70
+          %span{class: "font-ui text-2xs tracking-label uppercase text-hw-gold"} North Africa
+        %h3{class: "font-display font-normal text-xl text-hw-ink leading-[1.3] mb-2"} The Imperial Cities
+        %p{class: "font-body text-body text-hw-ink-2 leading-[1.78]"}
+          From Fès to Marrakech, through medinas that have been breathing the same air for nine centuries.
+
+    -# Japan
+    %div{class: "group cursor-pointer reveal", data: {controller: "reveal"}, style: "transition-delay: 0.12s;"}
+      %div{class: "aspect-[4/3] overflow-hidden relative"}
+        %div{class: "w-full h-full img-placeholder transition-transform duration-slow group-hover:scale-[1.04]", style: "background: linear-gradient(160deg, #3C4A5C 0%, #6B8090 45%, #2A3040 100%);"}
+        %div{class: "absolute inset-0 bg-hw-dark/45 opacity-0 transition-opacity duration-base group-hover:opacity-100 flex items-end p-6"}
+          %span{class: "font-ui text-xs tracking-cta uppercase text-white/90"} Explore Japan
+      %div{class: "pt-5 pb-7 border-b border-hw-gold/20"}
+        %div{class: "flex items-center gap-3 mb-2"}
+          .w-5.h-px.bg-hw-gold.opacity-70
+          %span{class: "font-ui text-2xs tracking-label uppercase text-hw-gold"} East Asia
+        %h3{class: "font-display font-normal text-xl text-hw-ink leading-[1.3] mb-2"} Slow Japan
+        %p{class: "font-body text-body text-hw-ink-2 leading-[1.78]"}
+          Ryokan mornings, mountain temples, and the particular silence of a Kyoto garden at first light.
+
+    -# Portugal
+    %div{class: "group cursor-pointer reveal", data: {controller: "reveal"}, style: "transition-delay: 0.24s;"}
+      %div{class: "aspect-[4/3] overflow-hidden relative"}
+        %div{class: "w-full h-full img-placeholder transition-transform duration-slow group-hover:scale-[1.04]", style: "background: linear-gradient(160deg, #5C6840 0%, #90A060 45%, #3A4228 100%);"}
+        %div{class: "absolute inset-0 bg-hw-dark/45 opacity-0 transition-opacity duration-base group-hover:opacity-100 flex items-end p-6"}
+          %span{class: "font-ui text-xs tracking-cta uppercase text-white/90"} Explore Portugal
+      %div{class: "pt-5 pb-7 border-b border-hw-gold/20"}
+        %div{class: "flex items-center gap-3 mb-2"}
+          .w-5.h-px.bg-hw-gold.opacity-70
+          %span{class: "font-ui text-2xs tracking-label uppercase text-hw-gold"} Southern Europe
+        %h3{class: "font-display font-normal text-xl text-hw-ink leading-[1.3] mb-2"} The Alentejo and Beyond
+        %p{class: "font-body text-body text-hw-ink-2 leading-[1.78]"}
+          Wine estates, whitewashed villages, and a coast that rewards those who leave the guidebook behind.
+
+
+-# ── HOW WE WORK ─────────────────────────────────────────────────
+%section#how-we-work{class: "bg-hw-dark dark-texture py-24 px-13"}
+  .max-w-5xl.mx-auto
+
+    -# Section header
+    %div{class: "mb-16 reveal", data: {controller: "reveal"}}
+      %div{class: "flex items-center gap-4 mb-6"}
+        .w-9.h-px.bg-hw-gold-light
+        %span{class: "font-ui text-xs tracking-label uppercase text-hw-gold-light"} How We Work
+      %h2{class: "font-display font-normal text-7xl text-white leading-[1.08]"}
+        From First Conversation
+        %br/
+        %em.italic.font-light to Final Farewell
+
+    -# Services grid — Roman numerals I–VI
+    %div{class: "grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-12"}
+
+      %div{class: "reveal", data: {controller: "reveal"}}
+        %p{class: "font-ui text-2xs tracking-widest uppercase text-hw-gold-light mb-3"} I
+        %h4{class: "font-display font-normal text-2xl text-white leading-[1.3] mb-2"} The Conversation
+        %p{class: "font-body text-body text-hw-cream/55 leading-[1.78]"}
+          We begin by listening. Your preferences, your pace, what you've loved and what has left you cold. No questionnaire captures this well.
+
+      %div{class: "reveal", data: {controller: "reveal"}, style: "transition-delay: 0.1s;"}
+        %p{class: "font-ui text-2xs tracking-widest uppercase text-hw-gold-light mb-3"} II
+        %h4{class: "font-display font-normal text-2xl text-white leading-[1.3] mb-2"} The Proposal
+        %p{class: "font-body text-body text-hw-cream/55 leading-[1.78]"}
+          A bespoke document — not a template — outlining a journey designed entirely around what we heard.
+
+      %div{class: "reveal", data: {controller: "reveal"}, style: "transition-delay: 0.05s;"}
+        %p{class: "font-ui text-2xs tracking-widest uppercase text-hw-gold-light mb-3"} III
+        %h4{class: "font-display font-normal text-2xl text-white leading-[1.3] mb-2"} The Refinement
+        %p{class: "font-body text-body text-hw-cream/55 leading-[1.78]"}
+          We revise until the proposal feels exactly right, then we make it better. This is not an unusual step — it is the expected one.
+
+      %div{class: "reveal", data: {controller: "reveal"}, style: "transition-delay: 0.15s;"}
+        %p{class: "font-ui text-2xs tracking-widest uppercase text-hw-gold-light mb-3"} IV
+        %h4{class: "font-display font-normal text-2xl text-white leading-[1.3] mb-2"} The Arrangement
+        %p{class: "font-body text-body text-hw-cream/55 leading-[1.78]"}
+          Every detail confirmed: accommodation, transfers, private guides, and the small things that elevate a good trip to an unforgettable one.
+
+      %div{class: "reveal", data: {controller: "reveal"}, style: "transition-delay: 0.1s;"}
+        %p{class: "font-ui text-2xs tracking-widest uppercase text-hw-gold-light mb-3"} V
+        %h4{class: "font-display font-normal text-2xl text-white leading-[1.3] mb-2"} The Journey
+        %p{class: "font-body text-body text-hw-cream/55 leading-[1.78]"}
+          You travel. We remain reachable — not to manage you, but in case anything requires our attention.
+
+      %div{class: "reveal", data: {controller: "reveal"}, style: "transition-delay: 0.2s;"}
+        %p{class: "font-ui text-2xs tracking-widest uppercase text-hw-gold-light mb-3"} VI
+        %h4{class: "font-display font-normal text-2xl text-white leading-[1.3] mb-2"} The Return
+        %p{class: "font-body text-body text-hw-cream/55 leading-[1.78]"}
+          A conversation about what endured — and, in time, about where to go next.
+
+
+-# ── TESTIMONIAL ─────────────────────────────────────────────────
+%section{class: "bg-hw-bg py-24 px-13"}
+  %blockquote{class: "max-w-3xl mx-auto text-center reveal", data: {controller: "reveal"}}
+    %p{class: "font-display font-light italic text-5xl text-hw-ink leading-[1.3]"}
+      "Haven &amp; Way understood something about how we travel that we had never managed to articulate ourselves."
+    %footer.mt-10
+      %div{class: "flex items-center justify-center gap-5"}
+        .w-9.h-px.bg-hw-gold
+        %cite{class: "font-ui font-normal text-xs tracking-label uppercase text-hw-ink-3 not-italic"}
+          Sarah &amp; David K., London
+        .w-9.h-px.bg-hw-gold
+
+
+-# ── INQUIRY FORM ─────────────────────────────────────────────────
+%section#inquiry{class: "bg-hw-bg-2 py-24 px-13"}
+  %div{class: "grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-6xl"}
+
+    -# Left — copy
+    %div{class: "reveal", data: {controller: "reveal"}}
+      %div{class: "flex items-center gap-4 mb-7"}
+        .w-9.h-px.bg-hw-gold
+        %span{class: "font-ui text-xs tracking-label uppercase text-hw-gold"} Begin Here
+      %h2{class: "font-display font-normal text-6xl text-hw-ink leading-[1.1] mb-6"}
+        Tell us about the journey
+        %br/
+        %em.italic.font-light you haven't taken yet.
+      %p{class: "font-body text-body-xl text-hw-ink-2 leading-[1.78] max-w-md"}
+        There's no form that can capture what the best journeys are made of. But it's a start — and we read every message ourselves.
+      %div{class: "mt-12 pt-10 border-t border-hw-gold/20"}
+        %p{class: "font-ui text-2xs tracking-label uppercase text-hw-ink-3 mb-3"} Or write to us directly
+        %a{href: "mailto:journeys@havenandway.com", class: "font-body text-body-xl text-hw-gold hover:text-hw-ink transition-colors duration-fast"}
+          journeys@havenandway.com
+
+    -# Right — form
+    %div{class: "reveal", data: {controller: "reveal"}, style: "transition-delay: 0.15s;"}
+      = form_with url: "#", method: :post, local: true, class: "space-y-8" do |f|
+        %div{class: "grid grid-cols-2 gap-6"}
+          %div
+            = f.text_field :name, placeholder: "Your name", class: "w-full bg-transparent border-b border-hw-gold-light/30 pb-3 font-body text-body-xl text-hw-ink placeholder:text-hw-ink/35 focus:outline-none focus:border-hw-gold-light/70 transition-colors duration-fast"
+          %div
+            = f.email_field :email, placeholder: "Your email", class: "w-full bg-transparent border-b border-hw-gold-light/30 pb-3 font-body text-body-xl text-hw-ink placeholder:text-hw-ink/35 focus:outline-none focus:border-hw-gold-light/70 transition-colors duration-fast"
+        %div
+          = f.text_field :destination, placeholder: "Where are you drawn to?", class: "w-full bg-transparent border-b border-hw-gold-light/30 pb-3 font-body text-body-xl text-hw-ink placeholder:text-hw-ink/35 focus:outline-none focus:border-hw-gold-light/70 transition-colors duration-fast"
+        %div
+          = f.text_area :message, rows: 4, placeholder: "Tell us where your mind wanders — the more specific, the better.", class: "w-full bg-transparent border-b border-hw-gold-light/30 pb-3 font-body text-body-xl text-hw-ink placeholder:text-hw-ink/35 focus:outline-none focus:border-hw-gold-light/70 transition-colors duration-fast resize-none"
+        %div
+          = f.submit "Send a Message", class: "font-ui font-normal text-sm tracking-cta uppercase bg-hw-gold text-white px-8 py-3.5 hover:bg-amber-700 transition-colors duration-fast cursor-pointer"
+
+
+-# ── FOOTER ───────────────────────────────────────────────────────
+%footer{class: "bg-hw-dark py-16 px-13"}
+
+  %div{class: "flex flex-col lg:flex-row items-start justify-between gap-16"}
+
+    -# Brand
+    .max-w-xs
+      %a{href: "/", class: "font-ui font-extralight text-md tracking-wordmark uppercase text-hw-cream"}
+        HAVEN
+        %span{class: "font-display font-light", style: "font-style: italic; letter-spacing: 0; text-transform: none;"} &amp;
+        WAY
+      %p{class: "font-body text-body text-hw-cream/40 mt-4 leading-[1.78]"}
+        Bespoke journeys for those who travel with intention. We work with a deliberately select number of clients each year.
+
+    -# Links
+    %div{class: "flex gap-16 lg:gap-24"}
+      %div
+        %p{class: "font-ui text-2xs tracking-label uppercase text-hw-gold-light mb-5"} Navigate
+        %ul.space-y-3
+          %li
+            %a{href: "#destinations", class: "font-ui font-normal text-sm tracking-nav uppercase text-hw-cream/50 hover:text-hw-cream transition-colors duration-fast"} Destinations
+          %li
+            %a{href: "#how-we-work", class: "font-ui font-normal text-sm tracking-nav uppercase text-hw-cream/50 hover:text-hw-cream transition-colors duration-fast"} Journeys
+          %li
+            %a{href: "#", class: "font-ui font-normal text-sm tracking-nav uppercase text-hw-cream/50 hover:text-hw-cream transition-colors duration-fast"} About
+          %li
+            %a{href: "#", class: "font-ui font-normal text-sm tracking-nav uppercase text-hw-cream/50 hover:text-hw-cream transition-colors duration-fast"} Stories
+          %li
+            %a{href: "#inquiry", class: "font-ui font-normal text-sm tracking-nav uppercase text-hw-cream/50 hover:text-hw-cream transition-colors duration-fast"} Begin
+      %div
+        %p{class: "font-ui text-2xs tracking-label uppercase text-hw-gold-light mb-5"} Contact
+        %ul.space-y-3
+          %li
+            %a{href: "mailto:journeys@havenandway.com", class: "font-body text-body text-hw-cream/50 hover:text-hw-cream transition-colors duration-fast"}
+              journeys@havenandway.com
+
+  %div{class: "mt-12 pt-8 border-t border-hw-gold-light/10 flex items-center justify-between"}
+    %p{class: "font-ui text-2xs tracking-caption uppercase text-hw-cream/25"}
+      © #{Date.current.year} Haven &amp; Way. All rights reserved.
+    %p{class: "font-ui text-2xs tracking-caption uppercase text-hw-cream/25"}
+      Bespoke Journeys Since 2009
