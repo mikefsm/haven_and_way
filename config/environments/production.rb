@@ -85,4 +85,7 @@ Rails.application.configure do
     "www.havenandway.com",
     /.*\.fly\.dev/
   ]
+
+  # Fly health checks hit /up with an internal host header, so exempt that path.
+  config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end
