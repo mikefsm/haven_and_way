@@ -21,9 +21,9 @@ gem "thruster", require: false
 gem "image_processing", "~> 1.2"
 
 # Views
-gem 'haml', '~> 7.2'
-gem 'haml-rails', '~> 3.0'
-gem 'html2haml'
+gem "haml", "~> 7.2"
+gem "haml-rails", "~> 3.0"
+gem "html2haml"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -44,6 +44,6 @@ group :development do
   gem "web-console"
 end
 
-gem "rspec-rails", "~> 8.0", groups: [:development, :test]
+gem "rspec-rails", "~> 8.0", groups: [ :development, :test ]
 
 gem "dockerfile-rails", ">= 1.7", group: :development
