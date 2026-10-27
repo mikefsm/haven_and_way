@@ -18,7 +18,11 @@ The 37signals way, applied for real: this codebase is new and small, so there is
 
 ## Jobs and mail
 
-Solid Queue runs inside Puma in production (`SOLID_QUEUE_IN_PUMA`). Send mail with `deliver_later`. A job takes ids, not objects. Recurring work goes in `config/recurring.yml`, which is version-controlled — prefer it over any external scheduler.
+Production's queue adapter is Solid Queue, but **nothing processes jobs on Fly yet.** `config/puma.rb` loads the Solid Queue plugin only when `SOLID_QUEUE_IN_PUMA` is set, and that variable is set only in `config/deploy.yml` — the unused Kamal scaffolding — not in `fly.toml` or the Dockerfile. Until it is, a `deliver_later` or `perform_later` in production enqueues work that never runs, silently, and so does anything in `config/recurring.yml`.
+
+So the first feature that needs a background job also sets `SOLID_QUEUE_IN_PUMA = 'true'` under `[env]` in `fly.toml`, in the same PR. Fly stops idle machines, so a job only runs while a machine is awake. That is fine for mail sent during a request, and it is a reason to be careful with anything recurring.
+
+Once that is in place: send mail with `deliver_later`. A job takes ids, not objects. Recurring work goes in `config/recurring.yml`, which is version-controlled — prefer it over any external scheduler.
 
 No SMTP is configured yet. Anything that sends mail needs that settled first, and the credentials go in `bin/rails credentials:edit`, never in the repo.
 

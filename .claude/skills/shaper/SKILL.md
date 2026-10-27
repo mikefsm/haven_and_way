@@ -45,6 +45,7 @@ The site is small, so the rabbit holes are the ones every small site falls into.
 - **The first model.** There are no app tables yet. The first feature that needs a database brings migrations, fixtures, and the question of who edits the records.
 - **Anyone signing in.** There is no authentication. The Rails 8 generator makes it cheap to add, but an admin area or a client login is a new surface to secure and maintain.
 - **Mail.** No SMTP is configured. Anything that emails the agency or a client needs a provider, credentials, and deliverability (SPF, DKIM) settled first.
+- **Background jobs.** Nothing processes jobs on Fly yet (`.claude/rules/rails-style.md`), and idle machines stop. The first `deliver_later` or recurring task brings that with it.
 - **Personal data.** Inquiries carry names, emails and plans. Storing them means deciding how long, who can see them, and what happens when someone asks to be forgotten.
 - **Spam.** A public form on a live domain attracts it within days.
 - **Content that has to stay true.** Destinations, prices, availability, testimonials. Ask who owns each.

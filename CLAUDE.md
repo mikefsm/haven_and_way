@@ -51,4 +51,5 @@ Most visitors will arrive on a phone from a link or a search. Design at phone wi
 - `config/deploy.yml` and `.kamal/` are the Rails generator's Kamal scaffolding with placeholder values. They are not how the site deploys.
 - Production allows hosts in `config/environments/production.rb` and exempts `/up` for Fly's health check. A new domain goes there.
 - Mailer links use `havenandway.com`; no SMTP is configured yet.
+- Production's queue adapter is Solid Queue, but no worker runs on Fly: `SOLID_QUEUE_IN_PUMA` is set only in the unused Kamal config. Enqueued jobs never run until it is added to `fly.toml`.
 - `bin/ci` and `config/ci.rb` are Rails 8's local CI runner and work as generated.
