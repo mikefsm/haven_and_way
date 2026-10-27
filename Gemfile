@@ -22,7 +22,7 @@ gem "image_processing", "~> 1.2"
 
 # Views
 gem "haml", "~> 7.2"
-gem "haml-rails", "~> 3.0"
+gem "haml-rails", "~> 3.1"
 gem "html2haml"
 
 group :development, :test do
