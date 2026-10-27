@@ -3,6 +3,7 @@
     "allow": [
       "Skill(preflight)",
       "Skill(pr)",
+      "Skill(start)",
       "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",
@@ -23,7 +24,10 @@
       "Bash(bin/brakeman:*)",
       "Bash(bin/bundler-audit)",
       "Bash(bin/importmap audit)",
-      "Bash(bundle exec rspec:*)"
+      "Bash(bundle exec rspec:*)",
+      "mcp__claude_ai_Trello__trelloReadCard",
+      "mcp__claude_ai_Trello__trelloReadList",
+      "mcp__claude_ai_Trello__trelloSearch"
     ]
   },
   "hooks": {
