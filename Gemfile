@@ -19,7 +19,7 @@ gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
 gem "image_processing", "~> 2.0"
-gem "ruby-vips", "~> 2.2"
+gem "ruby-vips", "~> 2.2", require: false
 
 # Views
 gem "haml", "~> 7.2"
