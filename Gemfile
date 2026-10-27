@@ -18,7 +18,8 @@ gem "solid_cable"
 gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 2.0"
+gem "ruby-vips", "~> 2.2"
 
 # Views
 gem "haml", "~> 7.2"
