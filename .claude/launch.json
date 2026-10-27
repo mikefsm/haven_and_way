@@ -1,0 +1,10 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "haven-and-way-dev",
+      "runtimeExecutable": "bin/dev",
+      "port": 3000
+    }
+  ]
+}
