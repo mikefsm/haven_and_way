@@ -20,7 +20,7 @@ A sentence describing what the change does, capitalised. `Send inquiries to the 
 
 Long-form prose with these sections:
 
-**Why.** The problem, in terms of the site's visitors or the agency. A reader who was not in the conversation should understand the motivation without asking.
+**Why.** The problem, in terms of the site's visitors or the agency, and the Trello card. A reader who was not in the conversation should understand the motivation without asking. The card number is in the branch name; read the card (as `/start` does, confirming the match by its `/<number>-` URL slug) and link it by URL rather than describing it from memory.
 
 **What changed.** What a reviewer should look at and in what order. Name the files that carry the substance; skip the ones that are consequences. If a decision in the diff could reasonably have gone another way, say why it went this way.
 
@@ -51,4 +51,11 @@ If it does not:
 
 Report the URL.
 
-Merging is not the next step. Merging to `main` deploys to production through `fly-deploy.yml`, so the merge is the user's call. Say that the PR is ready to merge when CI is green, and leave it there.
+**Then link the PR from its card and move the card. This is standing practice, so do it without asking.**
+
+- Post the link as a comment on the card whose number is in the branch name, using `trelloWriteCard` with `action: "add_comment"` and the text `PR: <url>`. Read the card's comments first (`trelloReadCard`, `action: "list_comments"`) and skip the post if the URL is already there, so an updated PR or a rerun never posts it twice. When one card produces several PRs, each gets its own comment.
+- Move the card to `In Review` with `trelloWriteCard`, `action: "move"`, unless it is already there.
+
+If the branch name carries no card number, say so in your report and ask whether a card should be made. Never attach the PR to a card you guessed at.
+
+Merging is not the next step. Merging to `main` deploys to production through `fly-deploy.yml`, so the merge is the user's call. Say that the PR is ready to merge when CI is green, and leave it there. When the user does ask you to merge, `CLAUDE.md` says what follows: confirm the deploy, then move the card to the month's Live list.

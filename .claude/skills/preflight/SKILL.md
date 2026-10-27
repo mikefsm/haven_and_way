@@ -47,6 +47,7 @@ Hand the diff to the `brutal-reviewer` agent. Relay its findings; do not re-revi
 
 Answer each, briefly:
 
+- Does the branch name match `<initials>_<trello_card_number>_<snake_case_description>`, from the Trello card?
 - Was the change looked at in a browser, at phone width and desktop?
 - Does new copy read in the site's voice, and is it flagged in the PR as a draft for the agency to read?
 - Does anything new handle a visitor's personal data — and is it kept out of logs and URLs?

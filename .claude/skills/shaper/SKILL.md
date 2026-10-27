@@ -62,6 +62,8 @@ Say you think it has settled, in a sentence or two naming the epicenter and the 
 
 When told to write, follow `docs/pitches/README.md` exactly. Name real files, using what `pitch-researcher` returned. Then say in your reply what the shape is and what it costs in days.
 
+Ideas waiting to be shaped sit in the board's `Story Time` list. If the session started from a card there, offer to link the pitch from that card and move it to `Next`. If it did not, offer to create the card in `Next`. Either way it is a write the user sees, so ask first.
+
 If the session ends with no pitch because the thing should not be built, say that plainly and say what to do instead. That is a successful session.
 
 ## Voice

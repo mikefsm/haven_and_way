@@ -4,7 +4,7 @@ Haven & Way is a boutique travel agency's website: bespoke journeys planned one 
 
 It is early. Today the whole site is one page, `app/views/pages/home.html.haml`, served by `PagesController#home`. There are no models and no app tables yet; `db/` holds only the Solid Cache, Queue and Cable schemas. The images are CSS gradient placeholders, the inquiry form posts to `"#"`, and the About and Stories links go nowhere. Treat the page as a design that is being made real, not as a finished site.
 
-`docs/decisions.md` holds decisions as they get made. `docs/pitches/` holds shaped features. There is no issue tracker; work in flight lives in GitHub PRs.
+Work in flight is tracked on the Trello board [Haven&Way](https://trello.com/b/pVi8Q14I/havenway), in Mike's personal workspace; the card is the source of truth for what is being worked on and why. `docs/decisions.md` holds decisions as they get made. `docs/pitches/` holds shaped features.
 
 ## Running it
 
@@ -39,15 +39,19 @@ Most visitors will arrive on a phone from a link or a search. Design at phone wi
 
 ## Working conventions
 
-- Branch from `main`. PRs target `main` and merge as merge commits.
+- Branch names are `<initials>_<trello_card_number>_<snake_case_description>`, from the card: `mp_12_inquiry_form_delivery`. `/start <card number>` creates the branch from the card. Initials come from `git config havenandway.initials`.
+- Branch from `origin/main`. PRs target `main` and merge as merge commits.
+- Every PR is linked from its Trello card with a `PR: <url>` comment posted when the PR opens. `/pr` does this.
 - Merging to `main` deploys: `.github/workflows/fly-deploy.yml` runs `flyctl deploy` on every push. There is no staging. Do not merge without being asked.
+- The board's lists follow the work: Story Time (ideas, and what `/shaper` works on) → Next (shaped, ready) → In Progress (`/start`) → In Review (PR open, `/pr`) → `Live - <Month> <Year>` (merged, which means deployed). When you merge a PR on request, confirm the deploy succeeded, then move its card to the current month's Live list, creating that list at the right end of the board if the month has turned.
 - Commit messages are short, capitalised, imperative, no body unless the reason is not obvious.
 - One concern per PR. A side finding gets its own PR.
 - Dependabot opens weekly PRs for gems and GitHub Actions.
 
 ## Where things are
 
-- Deployment is Fly (`fly.toml`, app `haven-and-way-jaunty-headland-2233`, region `ord`). The release command runs `bin/rails db:prepare`. Machines stop when idle (`min_machines_running = 0`), so the first request after a quiet spell is a cold start.
+- Deployment is Fly (`fly.toml`, app `haven-and-way-jaunty-headland-2233`, region `ord`). The release command runs `bin/rails db:prepare`. Machines stop when idle (`min_machines_running = 0`), so the first request after a quiet spell is a cold start, and Fly logs a failed health check on every start because Rails takes about five seconds to boot.
+- The deploy workflow authenticates with the `FLY_API_TOKEN` repo secret, a deploy-scoped token that **expires 2027-10-27**. After that every deploy fails with "no access token available" while the merge itself looks fine. Replace it with `flyctl tokens create deploy -a haven-and-way-jaunty-headland-2233 -x 8760h | gh secret set FLY_API_TOKEN`. A merge is not deployed until `gh run list --workflow fly-deploy.yml` says so.
 - `config/deploy.yml` and `.kamal/` are the Rails generator's Kamal scaffolding with placeholder values. They are not how the site deploys.
 - Production allows hosts in `config/environments/production.rb` and exempts `/up` for Fly's health check. A new domain goes there.
 - Mailer links use `havenandway.com`; no SMTP is configured yet.
