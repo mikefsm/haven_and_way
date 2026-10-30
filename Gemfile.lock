@@ -106,13 +106,20 @@ GEM
     erubis (2.7.0)
     et-orbi (1.4.0)
       tzinfo
+    ffi (1.17.4-aarch64-linux-gnu)
+    ffi (1.17.4-aarch64-linux-musl)
+    ffi (1.17.4-arm-linux-gnu)
+    ffi (1.17.4-arm-linux-musl)
+    ffi (1.17.4-arm64-darwin)
     ffi (1.17.4-x86_64-linux-gnu)
+    ffi (1.17.4-x86_64-linux-musl)
     fugit (1.12.1)
       et-orbi (~> 1.4)
       raabro (~> 1.4)
     globalid (1.4.0)
       activesupport (>= 6.1)
-    haml (7.2.0)
+    haml (7.5.1)
+      prism (>= 1.1.0)
       temple (>= 0.8.2)
       thor
       tilt
@@ -411,7 +418,7 @@ DEPENDENCIES
   bundler-audit
   debug
   dockerfile-rails (>= 1.7)
-  haml (~> 7.2)
+  haml (~> 7.5)
   haml-rails (~> 3.1)
   html2haml
   image_processing (~> 2.0)
