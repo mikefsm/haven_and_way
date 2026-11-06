@@ -22,7 +22,7 @@ gem "image_processing", "~> 2.0"
 gem "ruby-vips", "~> 2.2", require: false
 
 # Views
-gem "haml", "~> 7.2"
+gem "haml", "~> 7.5"
 gem "haml-rails", "~> 3.1"
 gem "html2haml"
 
