@@ -45,6 +45,6 @@ group :development do
   gem "web-console"
 end
 
-gem "rspec-rails", "~> 8.0", groups: [ :development, :test ]
+gem "rspec-rails", "~> 8.1", groups: [ :development, :test ]
 
 gem "dockerfile-rails", ">= 1.7", group: :development
